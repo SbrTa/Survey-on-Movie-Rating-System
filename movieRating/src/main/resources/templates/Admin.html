@@ -1,0 +1,100 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Survey</title>
+	<link rel="icon" type="image/png" href="/img/favicon.png"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/style2.css"/>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<!-- MultiStep Form -->
+<div class="main-wap">
+	<div class="colmd6">
+		<div id="msform">
+			<!-- progressbar -->
+			<!-- fieldsets -->
+			<fieldset>
+				<h2 class="fs-title">Admin</h2>
+
+				<form class="text-center" action="/app/movie/add" method="post" enctype="multipart/form-data">
+					<table>
+						<tr>
+							<td>Movie Poster</td>
+							<td><input style="padding: 5px" type="file" name="file" /></td>
+						</tr>
+						<tr>
+							<td>Movie Name</td>
+							<td><input style="padding: 5px" type="text" name="name" /></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" class="action-button" value="Add"/></td>
+						</tr>
+					</table>
+				</form>
+
+				<div class="clearfix"></div>
+
+				<h5>
+					To bulk upload, copy your movie poster to "/resource/posters" directory. Update the MovieList.xlsx file
+					in "/resource" directory. Then click on the "Add Movies" button below
+				</h5>
+
+				<form action="/app/movie/import" method="get">
+					<input type="submit" class="action-button" value="Add Movies"/>
+				</form>
+
+				<div class="clearfix"></div>
+				<h5>
+					Added Movies
+				</h5>
+
+				<div class="movie-items">
+					<div th:each="movie : ${movies}">
+						<label class="itemCheckBox movie-items-each">
+								<span class="item-wap">
+                            		<img th:src="${movie.getLogo()}" alt="" class="img-responsive"/>
+									<label class="mTitle" th:text="${movie.getName()}"></label>
+									<form action="/app/movie/remove" method="post">
+										<input th:type="hidden" type="text" th:value="${movie.getId()}" name="id" />
+										<input type="submit" class="btn btn-primary" value="Remove"/>
+									</form>
+                          		</span>
+						</label>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!-- /.MultiStep Form -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

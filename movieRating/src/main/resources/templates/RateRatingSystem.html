@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Survey</title>
+	<link rel="icon" type="image/png" href="/img/favicon.png"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/style2.css"/>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<!-- MultiStep Form -->
+<div class="main-wap">
+	<div class="colmd6">
+		<div id="msform">
+			<!-- progressbar -->
+
+			<!-- fieldsets -->
+			<fieldset>
+				<h2 class="fs-title">Rate your favouring rating system</h2>
+				<h3 class="fs-subtitle">How would you rate your effort in rating the movies using the following scale?</h3>
+				<div class="table-responsive">
+					<form action="/app/rating-system/rating" method="POST">
+						<table class="table">
+							<tr>
+								<td></td>
+								<td>Very Easy</td>
+								<td>Easy</td>
+								<td>Medium</td>
+								<td>Hard</td>
+								<td>Very Hard</td>
+							</tr>
+
+							<tr>
+								<td><img class="rating-image-pack" src="/img/color-circle-pack.png" alt=""/></td>
+								<td><input type="radio" name="colorCircle" value="1"/></td>
+								<td><input type="radio" name="colorCircle" value="2"/></td>
+								<td><input type="radio" name="colorCircle" value="3"/></td>
+								<td><input type="radio" name="colorCircle" value="4"/></td>
+								<td><input type="radio" name="colorCircle" value="5"/></td>
+							</tr>
+
+							<tr>
+                                <td><img class="rating-image-pack" src="/img/color-star-pack.png" alt=""/></td>
+								<td><input type="radio" name="colorStar" value="1"/></td>
+								<td><input type="radio" name="colorStar" value="2"/></td>
+								<td><input type="radio" name="colorStar" value="3"/></td>
+								<td><input type="radio" name="colorStar" value="4"/></td>
+								<td><input type="radio" name="colorStar" value="5"/></td>
+							</tr>
+
+							<tr>
+                                <td><img class="rating-image-pack" src="/img/color-emo-pack.png" alt=""/></td>
+								<td><input type="radio" name="colorEmo" value="1"/></td>
+								<td><input type="radio" name="colorEmo" value="2"/></td>
+								<td><input type="radio" name="colorEmo" value="3"/></td>
+								<td><input type="radio" name="colorEmo" value="4"/></td>
+								<td><input type="radio" name="colorEmo" value="5"/></td>
+							</tr>
+
+							<!--<tr>
+                                &lt;!&ndash;<td><img class="rating-image-pack" src="/img/color-emo-pack.png" alt=""/></td>&ndash;&gt;
+                                <td>Gradient</td>
+								<td><input type="radio" name="gradient" value="1"/></td>
+								<td><input type="radio" name="gradient" value="2"/></td>
+								<td><input type="radio" name="gradient" value="3"/></td>
+								<td><input type="radio" name="gradient" value="4"/></td>
+								<td><input type="radio" name="gradient" value="5"/></td>
+							</tr>-->
+
+							<tr>
+                                <td><img class="rating-image-pack" src="/img/bw-circle-pack.png" alt=""/></td>
+								<td><input type="radio" name="bwCircle" value="1"/></td>
+								<td><input type="radio" name="bwCircle" value="2"/></td>
+								<td><input type="radio" name="bwCircle" value="3"/></td>
+								<td><input type="radio" name="bwCircle" value="4"/></td>
+								<td><input type="radio" name="bwCircle" value="5"/></td>
+							</tr>
+
+							<tr>
+                                <td><img class="rating-image-pack" src="/img/bw-emo-pack.png" alt=""/></td>
+								<td><input type="radio" name="bwEmo" value="1"/></td>
+								<td><input type="radio" name="bwEmo" value="2"/></td>
+								<td><input type="radio" name="bwEmo" value="3"/></td>
+								<td><input type="radio" name="bwEmo" value="4"/></td>
+								<td><input type="radio" name="bwEmo" value="5"/></td>
+							</tr>
+
+							<tr>
+                                <td><img class="rating-image-pack" src="/img/bw-star-pack.png" alt=""/></td>
+								<td><input type="radio" name="bwStar" value="1"/></td>
+								<td><input type="radio" name="bwStar" value="2"/></td>
+								<td><input type="radio" name="bwStar" value="3"/></td>
+								<td><input type="radio" name="bwStar" value="4"/></td>
+								<td><input type="radio" name="bwStar" value="5"/></td>
+							</tr>
+						</table>
+
+						<input id="btnSubmitRateOfRatingSystem" type="submit" class="next action-button" value="Next"/>
+					</form>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!-- /.MultiStep Form -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+
+        $("input[name='colorCircle']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+        $("input[name='colorStar']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+        $("input[name='colorEmo']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+        /*$("input[name='gradient']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });*/
+
+        $("input[name='bwCircle']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+        $("input[name='bwEmo']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+        $("input[name='bwStar']").on("change", function()
+        {
+            if (!$("input[name='colorCircle']:checked").val() ||
+                !$("input[name='colorStar']:checked").val() ||
+                !$("input[name='colorEmo']:checked").val() ||
+                // !$("input[name='gradient']:checked").val() ||
+                !$("input[name='bwCircle']:checked").val() ||
+                !$("input[name='bwEmo']:checked").val() ||
+                !$("input[name='bwStar']:checked").val()) {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitRateOfRatingSystem").attr("disabled", false);
+            }
+        });
+
+
+    });
+
+</script>
+
+</body>
+
+</html>

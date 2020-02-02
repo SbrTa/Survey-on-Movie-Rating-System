@@ -1,0 +1,289 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Survey</title>
+	<link rel="icon" type="image/png" href="/img/favicon.png"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<!-- MultiStep Form -->
+<div class="main-wap">
+	<div class="colmd6">
+		<div id="msform">
+			<!-- progressbar -->
+
+			<!-- fieldsets -->
+			<fieldset>
+				<h2 class="fs-title">Please rate the movie</h2>
+				<!--<h3 class="fs-subtitle">Your presence on the social network</h3>-->
+
+				<div class="single-movie text-center">
+					<div class="movie-info">
+						<img th:src="${movie.getLogo()}" alt="" style="height: 250px" class="img-responsive"/>
+						<label class="mTitle" th:text="${movie.getName()}"></label>
+					</div>
+
+					<input type="hidden" id="ratingSystem" th:value="${movie.getRatingSystem()}"/>
+
+					<div class="rating image-rating" style="display: none" id="bw-star">
+						<label class="full movie-rate">
+							<img src="/img/star.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/star.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/star.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/star.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/star.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+
+					<div class="rating image-rating" style="display: none" id="color-star">
+						<label class="full movie-rate">
+							<img src="/img/color-star-5.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-star-4.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-star-3.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-star-2.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-star-1.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+
+					<div class="rating image-rating" style="display: none" id="color-emo">
+						<label class="full movie-rate">
+							<img src="/img/color-emo-5.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-4.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-3.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-2.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-1.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+					<div class="rating image-rating" style="display: none" id="gradient">
+						<label class="full movie-rate">
+							<img src="/img/color-emo-5.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-4.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-3.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-2.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-emo-1.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+
+					<div class="rating image-rating" style="display: none" id="bw-emo">
+						<label class="full movie-rate">
+							<img src="/img/bw-emo-5.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-emo-4.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-emo-3.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-emo-2.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-emo-1.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+
+					<div class="rating image-rating" style="display: none" id="bw-circle">
+						<label class="full movie-rate">
+							<img src="/img/color-circle-5.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-circle-4.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-circle-3.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-circle-2.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/color-circle-1.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+
+					<div class="rating image-rating" style="display: none" id="color-circle">
+						<label class="full movie-rate">
+							<img src="/img/bw-circle.png" alt=""/>
+							<input type="radio" name="rating" value="5" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-circle.png" alt=""/>
+							<input type="radio" name="rating" value="4" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-circle.png" alt=""/>
+							<input type="radio" name="rating" value="3" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-circle.png" alt=""/>
+							<input type="radio" name="rating" value="2" />
+						</label>
+						<label class="full movie-rate">
+							<img src="/img/bw-circle.png" alt=""/>
+							<input type="radio" name="rating" value="1" />
+						</label>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="btn">
+					<table>
+						<tbody>
+						<tr>
+							<form th:action="@{'/app/movie/rating/' + ${movie.getSerial() - 1}}" method="get">
+								<input type="submit" class="previous action-button-previous" value="Previous"/>
+							</form>
+						</tr>
+						<tr>
+							<form action="/app/movie/rating" method="post">
+								<input id="ratingId" name="ratingId" type="hidden" th:value="${movie.getRatingId()}"/>
+								<input id="ratingValue" name="ratingValue" type="hidden"/>
+								<input type="submit" id="btnSubmitRating" class="next action-button" value="Next"/>
+							</form>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!-- /.MultiStep Form -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#btnSubmitRating").attr("disabled", true);
+
+        var ratingSystem = $("#ratingSystem").val();
+
+        var colorCircle = document.getElementById("color-circle");
+        var colorStar = document.getElementById("color-star");
+        var colorEmo = document.getElementById("color-emo");
+        // var gradient = document.getElementById("gradient");
+        var bwCircle = document.getElementById("bw-circle");
+        var bwEmo = document.getElementById("bw-emo");
+        var bwStar = document.getElementById("bw-star");
+
+        if (ratingSystem==1){
+            colorCircle.style.display = "block";
+        }
+        if (ratingSystem==2){
+            colorStar.style.display = "block";
+        }
+        if (ratingSystem==3){
+            colorEmo.style.display = "block";
+        }
+        /*if (ratingSystem==4){
+            gradient.style.display = "block";
+        }*/
+        if (ratingSystem==4){
+            bwCircle.style.display = "block";
+        }
+        if (ratingSystem==5){
+            bwEmo.style.display = "block";
+        }
+        if (ratingSystem==6){
+            bwStar.style.display = "block";
+        }
+
+        $("input[name='rating']").on('change', function(evt) {
+            var val = $("input[name='rating']:checked").val();
+            if (val) {
+                $("#ratingValue").val(val);
+                $("#btnSubmitRating").attr("disabled", false);
+            }
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

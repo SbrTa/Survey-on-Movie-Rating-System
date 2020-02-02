@@ -1,0 +1,13 @@
+.movie-items-each{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 250px;
+}
+.movie-items-each :hover{
+    opacity: 0.8 !important;
+}
+
+
+.rating-image-pack{
+    height: 35px;
+}

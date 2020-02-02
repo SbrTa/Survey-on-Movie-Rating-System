@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>User Study</title>
+	<link rel="icon" type="image/png" href="/img/favicon.png"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<!-- MultiStep Form -->
+<div class="main-wap">
+	<div class="colmd6">
+		<div id="msform">
+			<!-- progressbar -->
+
+			<!-- fieldsets -->
+			<fieldset>
+				<h2 class="fs-title">Personal Details</h2>
+				<h3 class="fs-subtitle">Tell us something more about you</h3>
+				<div class="table-responsive">
+					<form action="/app/userChoice" method="POST">
+						<table class="table">
+							<tr>
+								<td></td>
+								<td>Disagree Strongly</td>
+								<td>Disagree a little </td>
+								<td>Neither agree nor disagree </td>
+								<td>Agree a little</td>
+								<td>Agree Strongly </td>
+							</tr>
+							<tr>
+								<td>Is talkative</td>
+								<td><input type="radio" name="talkativeLevel" value="1"/></td>
+								<td><input type="radio" name="talkativeLevel" value="2"/></td>
+								<td><input type="radio" name="talkativeLevel" value="3"/></td>
+								<td><input type="radio" name="talkativeLevel" value="4"/></td>
+								<td><input type="radio" name="talkativeLevel" value="5"/></td>
+							</tr>
+							<tr>
+								<td>Tends to find fault with others</td>
+								<td><input type="radio" name="findFaultLevel" value="1"/></td>
+								<td><input type="radio" name="findFaultLevel" value="2"/></td>
+								<td><input type="radio" name="findFaultLevel" value="3"/></td>
+								<td><input type="radio" name="findFaultLevel" value="4"/></td>
+								<td><input type="radio" name="findFaultLevel" value="5"/></td>
+							</tr>
+							<tr>
+								<td>Does a thorough job</td>
+								<td><input type="radio" name="thoroughJobLevel" value="1"/></td>
+								<td><input type="radio" name="thoroughJobLevel" value="2"/></td>
+								<td><input type="radio" name="thoroughJobLevel" value="3"/></td>
+								<td><input type="radio" name="thoroughJobLevel" value="4"/></td>
+								<td><input type="radio" name="thoroughJobLevel" value="5"/></td>
+							</tr>
+							<tr>
+								<td>Is depressed, blue</td>
+								<td><input type="radio" name="depressionLevel" value="1"/></td>
+								<td><input type="radio" name="depressionLevel" value="2"/></td>
+								<td><input type="radio" name="depressionLevel" value="3"/></td>
+								<td><input type="radio" name="depressionLevel" value="4"/></td>
+								<td><input type="radio" name="depressionLevel" value="5"/></td>
+							</tr>
+						</table>
+						<input id="btnSubmitUserChoice" type="submit" class="next action-button"/>
+					</form>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!-- /.MultiStep Form -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#btnSubmitUserChoice").attr("disabled", true);
+
+        $("input[name='talkativeLevel']").on("change", function()
+        {
+            if (!$("input[name='talkativeLevel']:checked").val() ||
+                !$("input[name='findFaultLevel']:checked").val() ||
+                !$("input[name='thoroughJobLevel']:checked").val() ||
+                !$("input[name='depressionLevel']:checked").val()) {
+                $("#btnSubmitUserChoice").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitUserChoice").attr("disabled", false);
+            }
+        });
+
+        $("input[name='findFaultLevel']").on("change", function()
+        {
+            if (!$("input[name='talkativeLevel']:checked").val() ||
+                !$("input[name='findFaultLevel']:checked").val() ||
+                !$("input[name='thoroughJobLevel']:checked").val() ||
+                !$("input[name='depressionLevel']:checked").val()) {
+                $("#btnSubmitUserChoice").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitUserChoice").attr("disabled", false);
+            }
+        });
+
+        $("input[name='thoroughJobLevel']").on("change", function()
+        {
+            if (!$("input[name='talkativeLevel']:checked").val() ||
+                !$("input[name='findFaultLevel']:checked").val() ||
+                !$("input[name='thoroughJobLevel']:checked").val() ||
+                !$("input[name='depressionLevel']:checked").val()) {
+                $("#btnSubmitUserChoice").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitUserChoice").attr("disabled", false);
+            }
+        });
+
+        $("input[name='depressionLevel']").on("change", function()
+        {
+            if (!$("input[name='talkativeLevel']:checked").val() ||
+                !$("input[name='findFaultLevel']:checked").val() ||
+                !$("input[name='thoroughJobLevel']:checked").val() ||
+                !$("input[name='depressionLevel']:checked").val()) {
+                $("#btnSubmitUserChoice").attr("disabled", true);
+            }
+            else {
+                $("#btnSubmitUserChoice").attr("disabled", false);
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+
+</html>
