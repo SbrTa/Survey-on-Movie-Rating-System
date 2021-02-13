@@ -33,7 +33,7 @@
 			<!-- fieldsets -->
 			<fieldset>
 				<h2 class="fs-title">Movie Gallery</h2>
-				<h3 class="fs-subtitle">Please select movies you want to rate. (Minimum 5 movies and Maximum 20 movies)</h3>
+				<h3 class="fs-subtitle">Please select movies you want to rate. (Minimum 2 movies and Maximum 20 movies)</h3>
 
 				<form action="/app/movie/gallery" method="POST">
 					<div class="movie-items">
@@ -72,7 +72,7 @@
         $("#btnSubmitMovies").attr("disabled", true);
         var checkboxes = $('.itemCheckBox input[type="checkbox"]');
 
-        var min = 5;
+        var min = 2;
         var max = 20;
 
         $(checkboxes).on('change', function(evt) {
