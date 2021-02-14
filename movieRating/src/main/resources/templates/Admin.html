@@ -35,7 +35,7 @@
                 <h2 class="fs-title">Admin Panel</h2>
                 <div class="row" style="background-color: beige; padding: 15px">
                     <div class="col-sm-6">
-                        <form class="text-center" action="/app/movie/add" method="post" enctype="multipart/form-data">
+                        <form class="text-center" action="/admin/movie/add" method="post" enctype="multipart/form-data">
                             <table>
                                 <tr>
                                     <td>Movie Poster</td>
@@ -58,7 +58,7 @@
                             To bulk upload, copy your movie poster to "/resource/posters" directory. Update the MovieList.xlsx
                             file in "/resource" directory. Then click on the "Add Movies" button below
                         </h5>
-                        <form action="/app/movie/import" method="get">
+                        <form action="/admin/movie/import" method="get">
                             <input type="submit" class="action-button" value="Add Movies"/>
                         </form>
                     </div>
@@ -70,7 +70,7 @@
                     <div th:each="movie : ${movies}">
                         <label class="itemCheckBox movie-items-each">
 								<span class="item-wap">
-                                    <form action="/app/movie/remove" method="post">
+                                    <form action="/admin/movie/remove" method="post">
                                         <input th:type="hidden" type="text" th:value="${movie.getId()}" name="id"/>
                                         <button type="submit" class="close" aria-label="Close">
                                             <span aria-hidden="true" style="color: red">&times;</span>

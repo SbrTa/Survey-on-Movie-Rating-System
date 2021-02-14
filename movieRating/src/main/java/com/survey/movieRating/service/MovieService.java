@@ -17,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class MovieService extends BaseService {
@@ -32,11 +35,14 @@ public class MovieService extends BaseService {
     private RateRatingSystemRepository rateRatingSystemRepository;
 
     public void saveMovie(String name, MultipartFile logo) throws IOException {
-        if (name==null || name.equals("") || logo.isEmpty()){
+        if (name == null || "".equals(name.trim()) || logo.isEmpty()) {
+            return;
+        }
+        if (movieRepository.countByName(name.trim()) > 0) {
             return;
         }
         Movie movie = new Movie();
-        movie.setName(name);
+        movie.setName(name.trim());
         movie.setLogo(this.convertMultipartToBase64Img(logo));
         movieRepository.save(movie);
     }
@@ -46,8 +52,7 @@ public class MovieService extends BaseService {
     }
 
     public List<Movie> getAllMovies() {
-        List<Movie> movies = movieRepository.findAll();
-        return movies;
+        return movieRepository.findAll();
     }
 
     public void importMoviesFromExcel() throws IOException {
@@ -59,6 +64,9 @@ public class MovieService extends BaseService {
     }
 
     private void addMovieFromResource(MovieSourceModel model) throws IOException {
+        if (movieRepository.countByName(model.getName()) > 0) {
+            return;
+        }
         Resource resource = new ClassPathResource("posters/" + model.getPath());
         InputStream input = resource.getInputStream();
         Movie movie = new Movie();
@@ -128,7 +136,7 @@ public class MovieService extends BaseService {
         rating.setRating(rate);
 
         Long next = rating.getSerial() + 1;
-        if (ratingRepository.findByUserIdAndSerial(getCurrentUser().getId(),next) == null) {
+        if (ratingRepository.findByUserIdAndSerial(getCurrentUser().getId(), next) == null) {
             next = null;
         }
         return next;
